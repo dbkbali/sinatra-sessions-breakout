@@ -1,1 +1,21 @@
 <h1>Home Page</h1>
+<%= @message.inspect %>
+<%= session.inspect %>
+
+<form action="/todos" method='post'>
+  <div>
+  <label for="todo[task]">Task</label>
+  <input type="text" name='todo[task]'>
+
+  <label for="todo[date]">Date</label>
+  <input type="date" name='todo[due_date]'>
+
+  <input type="submit" value="submit">
+</form>
+
+
+<ul>
+<% @todos.each do |t| %>
+  <li><%= t.task %> - <%= t.due_date %></li>
+<% end %>
+</ul>
